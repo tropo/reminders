@@ -1,0 +1,25 @@
+== Welcome to the Tropo Reminder Demo
+
+This is a Tropo application designed to demonstrate building a reminder application using both Voice and SMS alerts.
+
+== Create application steps or your could simply clone it from github :)
+
+rails new Reminders -d mysql
+rails g scaffold Reminder name:string message:text phonenumber:string appointment:datetime
+rake db:create
+rake db:migrate
+
+delete public/index.html
+change root :to => "welcome#index" in config/routes.rb to root :to => "reminders#index"
+
+Add gem 'rest-client' to Gemfile and run bundle install
+
+rails g controller api
+
+
+Open your web browser to http://localhost:3000
+
+== Create Tropo App using the Scripting API
+
+Copy and paste source code from tropo_scripting_api.rb into separate scripts running under the same application. One for placing outbound voice call reminders and one for sending SMS message reminders.
+
