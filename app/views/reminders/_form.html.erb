@@ -20,12 +20,12 @@
     <%= f.text_area :message %>
   </div>
   <div class="field">
-    <%= f.label :phonenumber %> (include country code i.e. 16025551212)<br />
+    <%= f.label :phonenumber %> <br />
     <%= f.text_field :phonenumber %>
   </div>
   <div class="field">
     <%= f.label :appointment %><br />
-    <%= f.datetime_select :appointment %>
+    <%= f.datetime_select :appointment %> UTC
   </div>
   <div class="actions">
     <%= f.submit %>
