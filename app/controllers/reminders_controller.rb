@@ -42,10 +42,6 @@ class RemindersController < ApplicationController
   def create
     @reminder = Reminder.new(params[:reminder])
     
-    @reminder.flag1 = 0
-    @reminder.flag2 = 0
-    @reminder.flag3 = 0
-
     respond_to do |format|
       if @reminder.save
         format.html { redirect_to(@reminder, :notice => 'Reminder was successfully created.') }

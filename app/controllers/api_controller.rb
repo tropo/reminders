@@ -6,7 +6,7 @@ class ApiController < ApplicationController
     # @reminders = Reminder.where("(appointment > ?) && (appointment < ?) && ( ISNULL(flag1) || ISNULL(flag2) || ISNULL(flag3))", Time.now.utc, Time.now.utc+1.week)
 
     # WORKS IN POSTGRES
-    @reminders = Reminder.where("(appointment > ?) and (appointment < ?) and ( flag1 = 0 or flag2 = 0 or flag3 = 0)", Time.now.utc, Time.now.utc+1.week )
+    @reminders = Reminder.where("(appointment > ?) and (appointment < ?) and ( flag1 IS NULL or flag2 IS NULL or flag3 IS NULL)", Time.now.utc, Time.now.utc+1.week )
 
     
     @reminders.each do |reminder| 
