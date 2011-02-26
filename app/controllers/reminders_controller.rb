@@ -41,6 +41,10 @@ class RemindersController < ApplicationController
   # POST /reminders.xml
   def create
     @reminder = Reminder.new(params[:reminder])
+    
+    @reminder.flag1 = 0
+    @reminder.flag2 = 0
+    @reminder.flag3 = 0
 
     respond_to do |format|
       if @reminder.save

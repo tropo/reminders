@@ -1,9 +1,11 @@
 class ApiController < ApplicationController
   def check
     
+    # WORKS IN MYSQL
     # @reminders = Reminder.where("(appointment > ?) && (appointment < ?) && ( ISNULL(flag1) || ISNULL(flag2) || ISNULL(flag3))", Time.now.utc, Time.now.utc+1.week)
 
-    @reminders = Reminder.where("(appointment > ?) && (appointment < ?) && ( flag1 IS NULL || flag2 IS NULL || flag3 IS NULL)", Time.now.utc, Time.now.utc+1.week)
+    # WORKS IN POSTGRES
+    @reminders = Reminder.where("(appointment > ?) && (appointment < ?) && ( flag1 = 0 || flag2 = 0 || flag3 = 0)", Time.now.utc, Time.now.utc+1.week)
 
     
     @reminders.each do |reminder| 
