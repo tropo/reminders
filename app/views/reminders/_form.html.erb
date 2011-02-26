@@ -1,3 +1,5 @@
+<p>Current Time: <%=Time.now.utc%></p>
+
 <%= form_for(@reminder) do |f| %>
   <% if @reminder.errors.any? %>
     <div id="error_explanation">
