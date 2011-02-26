@@ -1,5 +1,6 @@
 class ApiController < ApplicationController
   def check
+    require 'time'
     
     # WORKS IN MYSQL
     # @reminders = Reminder.where("(appointment > ?) && (appointment < ?) && ( ISNULL(flag1) || ISNULL(flag2) || ISNULL(flag3))", Time.now.utc, Time.now.utc+1.week)
