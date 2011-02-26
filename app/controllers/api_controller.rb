@@ -20,9 +20,6 @@ class ApiController < ApplicationController
           :phonenumber => formatphone(reminder.phonenumber), 
           :remindermessage => 'dont forget ' + reminder.message.to_s + ' at ' + reminder.appointment.to_s}}
           
-        puts formatphone(reminder.phonenumber)
-        puts reminder.message.to_s
-        
         # Write Flag3
         @reminder = Reminder.find(reminder.id)
         @reminder.flag3 = true
