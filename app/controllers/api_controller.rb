@@ -19,6 +19,8 @@ class ApiController < ApplicationController
           :token => '848b6b17c6229844827847b381a4a7e25c72d0750ec751bc0d10072e58eaa12683b6ea0a8aa5e166ee7bfcc8', 
           :phonenumber => formatphone(reminder.phonenumber), 
           :remindermessage => 'dont forget ' + reminder.message.to_s + ' at ' + reminder.appointment.to_s}}
+          
+        puts formatphone(reminder.phonenumber)
         
         # Write Flag3
         @reminder = Reminder.find(reminder.id)
