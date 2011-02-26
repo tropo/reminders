@@ -1,7 +1,10 @@
 class ApiController < ApplicationController
   def check
     
-    @reminders = Reminder.where("(appointment > ?) && (appointment < ?) && ( ISNULL(flag1) || ISNULL(flag2) || ISNULL(flag3))", Time.now.utc, Time.now.utc+1.week)
+    # @reminders = Reminder.where("(appointment > ?) && (appointment < ?) && ( ISNULL(flag1) || ISNULL(flag2) || ISNULL(flag3))", Time.now.utc, Time.now.utc+1.week)
+
+    @reminders = Reminder.where("(appointment > ?) && (appointment < ?) && ( coalesce(flag1, 'Empty') || coalesce(flag2, 'Empty') || coalesce(flag3, 'Empty'))", Time.now.utc, Time.now.utc+1.week)
+
     
     @reminders.each do |reminder| 
            
